@@ -1,0 +1,67 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    x:Class="SmartCodeLab2.MainWindow"
+    Height="760" Width="1280"
+    WindowStyle="None"
+    ResizeMode="NoResize"
+    AllowsTransparency="True">
+
+    <Border Background="White" MouseDown="Border_MouseDown">
+        <DockPanel>
+
+            <!-- Side Menu -->
+            <hc:SideMenu x:Name="MySideMenu"
+                         Background="#FF1E2021"
+                         Width="50"
+                         DockPanel.Dock="Left"
+                         >
+
+                <!-- Toggle Button -->
+                <hc:SideMenuItem Background="#FF1E2021" Foreground="White" Margin="0,0,0,100" >
+                    <hc:SideMenuItem.Icon>
+                        <Image Source="/Assets/icons/menu_white.png" Width="24" Height="24"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+
+                <!-- Example Menu Items -->
+                <hc:SideMenuItem Header="{Binding OverviewHeader}" Background="#FF1E2021" Foreground="White">
+                    <hc:SideMenuItem.Icon>
+                        <Image Source="/Assets/icons/group_white.png" Width="24" Height="24"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+
+                <hc:SideMenuItem Header="{Binding FilesHeader}" Background="#FF1E2021" Foreground="White">
+                    <hc:SideMenuItem.Icon>
+                        <Image Source="/Assets/icons/file_white.png" Width="24" Height="24"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+
+                <hc:SideMenuItem Header="{Binding ExitHeader}" Background="#FF1E2021" Foreground="White">
+                    <hc:SideMenuItem.Icon>
+                        <Image Source="/Assets/icons/logout_white.png" Width="24" Height="24"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+
+                
+
+            </hc:SideMenu>
+
+            <Grid>
+                <Grid x:Name="grid1" Background="#FFCE0505">
+                    <!-- Your dashboard layout here -->
+                </Grid>
+                <Grid x:Name="grid2" Background="#FF0C2D6D">
+                    <!-- Your dashboard layout here -->
+                </Grid>
+                <Grid x:Name="grid3" Background="#FF26DA41">
+                    <!-- Your dashboard layout here -->
+                </Grid>
+                
+            </Grid>
+            <!-- Main Content -->
+
+        </DockPanel>
+    </Border>
+</Window>
