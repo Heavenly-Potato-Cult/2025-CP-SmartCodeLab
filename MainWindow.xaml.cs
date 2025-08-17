@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 using HandyControl.Controls;
+using System.IO;
 
 
 
@@ -48,10 +49,14 @@ namespace SmartCodeLab2
             ShowGrid(grid2);
 
         }
+        private void InstructionsButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowGrid(grid3);
+        }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowGrid(grid3);
+            this.Close();
 
         }
 
@@ -59,5 +64,85 @@ namespace SmartCodeLab2
         {
 
         }
+
+
+        private void AddFile_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.Filter = "Code Files|*.cpp;*.cs;*.java;*.txt|All Files|*.*";
+            if (dlg.ShowDialog() == true)
+            {
+                FileList.Items.Add(dlg.FileName);
+            }
+        }
+
+        private void DeleteFile_Click(object sender, RoutedEventArgs e)
+        {
+            if (FileList.SelectedItem != null)
+            {
+                FileList.Items.Remove(FileList.SelectedItem);
+                FilePreview.Clear();
+            }
+        }
+
+        private void FileList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (FileList.SelectedItem != null)
+            {
+                string filePath = FileList.SelectedItem.ToString();
+                FilePreview.Text = File.ReadAllText(filePath);
+            }
+        }
+
+
+
+        private void AddInstruction_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(InstructionBox.Text))
+            {
+                InstructionList.Items.Add($"{TaskNameBox.Text}: {InstructionBox.Text}");
+                InstructionBox.Clear();
+                TaskNameBox.Clear();
+            }
+        }
+
+        private void EditInstruction_Click(object sender, RoutedEventArgs e)
+        {
+            if (InstructionList.SelectedItem != null)
+            {
+                
+                string selected = InstructionList.SelectedItem.ToString();
+                InstructionBox.Text = selected;
+                InstructionList.Items.Remove(selected);
+            }
+        }
+
+        private void DeleteInstruction_Click(object sender, RoutedEventArgs e)
+        {
+            if (InstructionList.SelectedItem != null)
+            {
+                InstructionList.Items.Remove(InstructionList.SelectedItem);
+            }
+        }
+
+        private void InstructionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DisplayInstructionButton.Visibility = InstructionList.SelectedItem != null
+                ? Visibility.Visible
+                : Visibility.Collapsed;
+        }
+        private void AssociateFile_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        private void DisplayInstruction_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+
+
+
     }
 }

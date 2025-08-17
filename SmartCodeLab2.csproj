@@ -11,6 +11,7 @@
   <ItemGroup>
     <None Remove="Assets\icons\file_white.png" />
     <None Remove="Assets\icons\group_white.png" />
+    <None Remove="Assets\icons\instruction_white.png" />
     <None Remove="Assets\icons\logout_white.png" />
     <None Remove="Assets\icons\menu_white.png" />
   </ItemGroup>
@@ -24,6 +25,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\icons\group_white.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\icons\instruction_white.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\icons\logout_white.png">

@@ -34,6 +34,13 @@
                     <Image Source="/Assets/icons/file_white.png" Width="24" Height="24"/>
                 </Button>
 
+                <!-- Instructions -->
+                <Button Tag="Instructions" Click="InstructionsButton_Click"
+                        Background="#FF1E2021" BorderThickness="0"
+                        Padding="0" Width="50" Height="50">
+                    <Image Source="/Assets/icons/instruction_white.png" Width="24" Height="24"/>
+                </Button>
+
                 <!-- Exit -->
                 <Button Tag="Exit" Click="ExitButton_Click"
                         Background="#FF1E2021" BorderThickness="0"
@@ -45,7 +52,9 @@
 
             <!-- Main Content Area -->
             <Grid>
-                <Grid x:Name="grid1" Background="black">
+
+                <!-- 1st -->
+                <Grid x:Name="grid1" Background="black" Visibility="Visible">
                     <Canvas>
                         <Border HorizontalAlignment="Left" Canvas.Left="80" VerticalAlignment="Top" Canvas.Top="82" Background="#334455" Padding="15">
 
@@ -171,8 +180,117 @@
 
                     </Canvas>
                 </Grid>
-                <Grid x:Name="grid2" Background="#FF0C2D6D" Visibility="Collapsed"/>
-                <Grid x:Name="grid3" Background="#FF26DA41" Visibility="Collapsed"/>
+
+
+                <!-- 2nd -->
+                <Grid x:Name="grid2" Background="#FF0C2D6D" Visibility="Visible">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="315*"/>
+                        <RowDefinition Height="16*"/>
+                        <RowDefinition Height="49*"/>
+                    </Grid.RowDefinitions>
+                    <Canvas Grid.RowSpan="3">
+                        <!-- File Manager Panel -->
+                        <Border HorizontalAlignment="Left" Canvas.Left="80" VerticalAlignment="Top" 
+                                Canvas.Top="82" Background="#334455" Padding="15" Width="500" Height="500">
+
+                            <StackPanel>
+                                <TextBlock Text="Reference Files" 
+                                           FontSize="16" FontWeight="SemiBold" 
+                                           Foreground="White" Margin="0,0,0,10"/>
+
+                                <!-- File List -->
+                                <ListBox x:Name="FileList" Height="200" Background="White" SelectionChanged="FileList_SelectionChanged"/>
+
+                                <!-- Buttons -->
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                                    <Button Content="Add File" Click="AddFile_Click" Margin="0,0,10,0"/>
+                                    <Button Content="Delete File" Click="DeleteFile_Click"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Code Viewer -->
+                        <Border Canvas.Left="620" Canvas.Top="82" Background="#1E1E1E" Padding="10" Width="550" Height="500">
+                            <StackPanel>
+                                <TextBlock Text="Preview" Foreground="White" FontSize="14" FontWeight="SemiBold"/>
+                                <TextBox x:Name="FilePreview" 
+                                                 Background="#1E1E1E" Foreground="White"
+                                                 FontFamily="Consolas" FontSize="14"
+                                                 AcceptsReturn="True" AcceptsTab="True"
+                                                 IsReadOnly="True" 
+                                                 VerticalScrollBarVisibility="Auto"
+                                                 HorizontalScrollBarVisibility="Auto"
+                                                 VerticalContentAlignment="Top"
+                                                 Height="450"/>
+                            </StackPanel>
+                        </Border>
+                    </Canvas>
+                </Grid>
+
+
+
+
+
+
+
+                <!--3rd-->
+
+                <Grid x:Name="grid3" Background="#FF26DA41" Visibility="Visible">
+                    <Canvas>
+                        <Border Canvas.Left="80" Canvas.Top="82" Background="#334455" Padding="15" Width="1000" Height="668" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <Canvas>
+                                <!-- Task Name -->
+                                <TextBlock Text="Task Name:" Foreground="White" FontSize="14" Canvas.Left="10" Canvas.Top="10"/>
+                                <TextBox x:Name="TaskNameBox" Width="788" Canvas.Left="10" Canvas.Top="30"/>
+
+                                <!-- Instruction Input -->
+                                <TextBlock Text="Instruction:" Foreground="White" FontSize="14" Canvas.Left="10" Canvas.Top="70"/>
+                                <TextBox x:Name="InstructionBox" Width="800" Height="80" 
+                                                 AcceptsReturn="True" TextWrapping="Wrap"
+                                                 Canvas.Left="10" Canvas.Top="90"
+                                                VerticalContentAlignment="Top"/>
+
+                                <!-- Buttons -->
+                                <Button Content="Add Instruction" Click="AddInstruction_Click" Canvas.Left="10" Canvas.Top="180" Width="120"/>
+                                <Button Content="Edit Instruction" Click="EditInstruction_Click" Canvas.Left="140" Canvas.Top="180" Width="120"/>
+                                <Button Content="Delete Instruction" Click="DeleteInstruction_Click" Canvas.Left="270" Canvas.Top="180" Width="120"/>
+
+                                <!-- Instruction List -->
+                                <TextBlock Text="Instruction List:" Foreground="White" FontSize="14" Canvas.Left="10" Canvas.Top="220"/>
+                                <ListBox x:Name="InstructionList" Width="900" Height="200" Canvas.Left="10" Canvas.Top="240" SelectionChanged="InstructionList_SelectionChanged"/>
+
+                                <!-- Optional File Association Panel -->
+                                <Border Canvas.Left="10" Canvas.Top="450" Background="#556677" Width="900" Height="100" Padding="10">
+                                    <Canvas>
+                                        <TextBlock Text="Associate File (Optional):" Foreground="White" FontSize="14" Canvas.Left="0" Canvas.Top="0"/>
+                                        <ComboBox x:Name="FileAssociationComboBox" Width="400" Canvas.Left="0" Canvas.Top="25"/>
+                                        <Button x:Name="AssociateFileButton" Content="Associate File" Click="AssociateFile_Click" Width="120" Canvas.Left="420" Canvas.Top="25"/>
+                                    </Canvas>
+                                </Border>
+
+                                <!-- Display Instruction Button (Visible only when an instruction is selected) -->
+                                <Button x:Name="DisplayInstructionButton" Content="DISPLAY THIS INSTRUCTION" 
+                                                 Width="200" Height="30" Canvas.Left="740" Canvas.Top="180" Visibility="Collapsed" Click="DisplayInstruction_Click"/>
+                            </Canvas>
+                        </Border>
+                    </Canvas>
+                </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </Grid>
 
         </DockPanel>
