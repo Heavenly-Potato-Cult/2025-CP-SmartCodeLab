@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="SmartCodeLab2.CustomComponents.CustomTextField"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel Margin="10">
+        <Label x:Name="textLabel" Content="Name:" 
+               FontWeight="Bold" 
+               Margin="0,0,0,5"
+               HorizontalAlignment="Left"/>
+        <TextBox x:Name="textField1"
+                 Text=""
+                 Padding="5"
+                 Height="25"
+                 Width="200"
+                 HorizontalAlignment="Left"/>
+    </StackPanel>
+</UserControl>

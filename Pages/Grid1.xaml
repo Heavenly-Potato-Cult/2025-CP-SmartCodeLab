@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="SmartCodeLab2.Grid1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SmartCodeLab2"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="907.537">
+    <UserControl.Resources>
+        <!-- Style for section borders -->
+        <Style TargetType="Border" x:Key="SectionBorder">
+            <Setter Property="Background" Value="#334455"/>
+            <Setter Property="Padding" Value="15"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#556677"/>
+        </Style>
+
+        <!-- Style for section headers -->
+        <Style TargetType="TextBlock" x:Key="SectionHeader">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <!-- Using Grid instead of Canvas for better layout management -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Connected PCs Section -->
+        <Border Grid.Column="0" Grid.Row="0" Style="{StaticResource SectionBorder}">
+            <StackPanel>
+                <TextBlock Text="Connected PCs" Style="{StaticResource SectionHeader}"/>
+                <ListBox x:Name="PcList" Background="White" Height="200"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Live Code Editor Section -->
+        <Border Grid.Column="1" Grid.Row="0" Style="{StaticResource SectionBorder}">
+            <StackPanel>
+                <TextBlock Text="Live Code From:" Style="{StaticResource SectionHeader}"/>
+                <Border Height="2" Background="White" Margin="0,0,0,10"/>
+                <TextBox x:Name="CodeEditor"
+                         Text="int main() {&#xA;    return 0;&#xA;}"
+                         AcceptsReturn="True"
+                         AcceptsTab="True"
+                         IsReadOnly="True"
+                         VerticalScrollBarVisibility="Auto"
+                         HorizontalScrollBarVisibility="Auto"
+                         FontFamily="Consolas"
+                         FontSize="14"
+                         VerticalContentAlignment="Top"
+                         TextWrapping="NoWrap"
+                         Background="#1E1E1E"
+                         Foreground="White"
+                         BorderThickness="0"
+                         Padding="10"
+                         Height="350"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Code Analysis Section -->
+        <Border Grid.Column="2" Grid.Row="0" Style="{StaticResource SectionBorder}">
+            <StackPanel>
+                <TextBlock Text="Code Overview" Style="{StaticResource SectionHeader}"/>
+                <DataGrid x:Name="CodeOverviewGrid" Height="100" Background="White"/>
+
+                <TextBlock Text="Code Paste Detector" 
+                           Style="{StaticResource SectionHeader}"
+                           Margin="0,20,0,0"/>
+                <DataGrid x:Name="PasteDetectorGrid" Height="150" Background="White"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Analytics Footer -->
+        <Border Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" 
+                Style="{StaticResource SectionBorder}" Margin="0,10,0,0">
+            <TextBlock Text="Class-Wide Analytics" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Style="{StaticResource SectionHeader}"/>
+        </Border>
+    </Grid>
+</UserControl>

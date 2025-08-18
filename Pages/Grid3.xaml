@@ -1,0 +1,58 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SmartCodeLab2"
+             xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:CustomComponents="clr-namespace:SmartCodeLab2.CustomComponents" x:Class="SmartCodeLab2.Grid3"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <!-- Shared Styles -->
+        <Style TargetType="{x:Type Border}" x:Key="MainPanelBorder">
+            <Setter Property="Background" Value="#334455"/>
+            <Setter Property="Padding" Value="15"/>
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+
+        <Style TargetType="{x:Type TextBlock}" x:Key="SectionHeader">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+        </Style>
+
+        <Style TargetType="{x:Type TextBox}" x:Key="InputField">
+            <Setter Property="Background" Value="#1E1E1E"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#555555"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+
+        <Style TargetType="{x:Type Button}" x:Key="ActionButton">
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="0,0,10,0"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="#FF26DA41">
+        <hc:ButtonGroup/>
+        <hc:ScrollViewer Margin="155,308,10,10" Background="#FFA18D8D">
+            <WrapPanel x:Name="con" HorizontalAlignment="Left" VerticalAlignment="Top" Height="160" Width="635"/>
+        </hc:ScrollViewer>
+        <TreeView Width="150" HorizontalAlignment="Left" Margin="0,32,0,151">
+            <Button Content="Open Folder&#xA;" HorizontalAlignment="Left" Width="98" Click="Button_Click"/>
+        </TreeView>
+        <Button Content="Add Test Case" HorizontalAlignment="Left" Margin="155,275,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
+        <CustomComponents:CustomTextField x:Name="actName" HorizontalAlignment="Left" Margin="150,30,0,0" VerticalAlignment="Top" Height="81" LabelText="Activity Name"/>
+        <CustomComponents:CustomMultilineTextField x:Name="instruction" HorizontalAlignment="Left" Margin="150,98,0,0" VerticalAlignment="Top" Width="640" Height="115" LabelText="Instruction"/>
+        <CustomComponents:ComboBox HorizontalAlignment="Left" Margin="400,30,0,0" VerticalAlignment="Top" Width="175"/>
+        <CustomComponents:CustomFileChooser HorizontalAlignment="Left" Margin="155,212,0,0" VerticalAlignment="Top"/>
+        <Menu Height="30" VerticalAlignment="Top" Margin="0,0,0,0">
+            <MenuItem Header="File"/>
+        </Menu>
+    </Grid>
+</UserControl>
