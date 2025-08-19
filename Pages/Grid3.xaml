@@ -41,16 +41,16 @@
     <Grid Background="#FF26DA41">
         <hc:ButtonGroup/>
         <hc:ScrollViewer Margin="155,308,10,10" Background="#FFA18D8D">
-            <WrapPanel x:Name="con" HorizontalAlignment="Left" VerticalAlignment="Top" Height="160" Width="635"/>
+            <WrapPanel x:Name="con" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Width="Auto" Background="Black"/>
         </hc:ScrollViewer>
         <TreeView Width="150" HorizontalAlignment="Left" Margin="0,32,0,151">
             <Button Content="Open Folder&#xA;" HorizontalAlignment="Left" Width="98" Click="Button_Click"/>
         </TreeView>
         <Button Content="Add Test Case" HorizontalAlignment="Left" Margin="155,275,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
-        <CustomComponents:CustomTextField x:Name="actName" HorizontalAlignment="Left" Margin="150,30,0,0" VerticalAlignment="Top" Height="81" LabelText="Activity Name"/>
-        <CustomComponents:CustomMultilineTextField x:Name="instruction" HorizontalAlignment="Left" Margin="150,98,0,0" VerticalAlignment="Top" Width="640" Height="115" LabelText="Instruction"/>
-        <CustomComponents:ComboBox HorizontalAlignment="Left" Margin="400,30,0,0" VerticalAlignment="Top" Width="175"/>
-        <CustomComponents:CustomFileChooser HorizontalAlignment="Left" Margin="155,212,0,0" VerticalAlignment="Top"/>
+        <CustomComponents:CustomTextField x:Name="actName" HorizontalAlignment="Left" Margin="150,30,0,0" VerticalAlignment="Top" Height="81" LabelText="Activity Name" TextFieldWidth="250"/>
+        <CustomComponents:CustomMultilineTextField x:Name="instruction" HorizontalAlignment="Left" Margin="150,98,0,0" VerticalAlignment="Top" Width="322" Height="115" LabelText="Instruction" TextFieldWidth="300"/>
+        <CustomComponents:ComboBox x:Name="language" HorizontalAlignment="Left" Margin="472,30,0,0" VerticalAlignment="Top" Width="175" SetItems="Item 1, Item 2, Item 3"/>
+        <CustomComponents:CustomFileChooser x:Name="fileChooser" HorizontalAlignment="Left" Margin="493,111,0,0" VerticalAlignment="Top" Height="55"/>
         <Menu Height="30" VerticalAlignment="Top" Margin="0,0,0,0">
             <MenuItem Header="File"/>
         </Menu>

@@ -1,9 +1,10 @@
-﻿<Grid   x:Class="SmartCodeLab2.CustomComponents.testCase" 
+﻿<Grid 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="clr-namespace:SmartCodeLab2.CustomComponents"   x:Class="SmartCodeLab2.CustomComponents.testCase"
       HorizontalAlignment="Left"
       Margin="5"
-      Width="50" Height="50"
+      Width="170" Height="162"
       Background="LightBlue">
 
     <!-- Define rows/columns -->
@@ -15,7 +16,9 @@
         <ColumnDefinition Width="*"/>
         <ColumnDefinition Width="2*"/>
     </Grid.ColumnDefinitions>
-    <Button Content="X" Width="33" Grid.Column="1" Height="24" FontSize="5" HorizontalAlignment="Stretch" Click="Button_Click"/>
+    <local:CustomTextField HorizontalAlignment="Left" Margin="-1,89,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="171" TextFieldHeight="10" LabelHeight="20" TextFieldWidth="150" Grid.RowSpan="2" LabelFontSize="7" LabelText="Output"/>
+    <local:CustomMultilineTextField HorizontalAlignment="Left" Margin="-1,-8,0,0" VerticalAlignment="Top" Width="171" Grid.ColumnSpan="2"/>
+    <Label x:Name="closeBtn" Grid.Column="1" Content="X" Margin="84,2,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
     <!-- Add content -->
 </Grid>

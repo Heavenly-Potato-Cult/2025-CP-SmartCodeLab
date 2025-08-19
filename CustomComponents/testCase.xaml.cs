@@ -1,24 +1,65 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace SmartCodeLab2.CustomComponents
 {
     /// <summary>
     /// Interaction logic for testCase.xaml
     /// </summary>
-    public partial class testCase : Grid
+    public partial class testCase : Grid, IDisposable
     {
-        WrapPanel wp;
-        public testCase(WrapPanel wp)
+        private WrapPanel _parentPanel;
+        private bool _disposed = false;
+
+        public testCase(WrapPanel parentPanel)
         {
             InitializeComponent();
-            this.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-            this.wp = wp;
+            _parentPanel = parentPanel;
+
+            closeBtn.MouseDown += CloseBtn_MouseDown;
+        }
+
+        private void CloseBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Dispose();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            wp.Children.Remove(this);
+            Dispose();
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed) return;
+
+            if (disposing)
+            {
+                // Free managed resources
+                closeBtn.MouseDown -= CloseBtn_MouseDown;
+
+                // Remove event handlers from other controls if any
+                // this.Click -= SomeHandler;
+
+                // Remove from parent
+                if (_parentPanel != null && _parentPanel.Children.Contains(this))
+                {
+                    _parentPanel.Children.Remove(this);
+                }
+
+                _parentPanel = null; // Remove reference
+            }
+
+            // Free unmanaged resources here (if any)
+
+            _disposed = true;
         }
     }
 }

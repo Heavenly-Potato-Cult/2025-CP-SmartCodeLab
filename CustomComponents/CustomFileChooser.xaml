@@ -8,6 +8,6 @@
     <WrapPanel>
         <Label Content="Associate Files" Width="141"/>
         <Label Content="" Width="176"/>
-        <local:CustomButton VerticalAlignment="Bottom" Text="Select File" Height="28"/>
+        <local:CustomButton x:Name="button" VerticalAlignment="Bottom" Text="Select File" Height="28"/>
     </WrapPanel>
 </UserControl>

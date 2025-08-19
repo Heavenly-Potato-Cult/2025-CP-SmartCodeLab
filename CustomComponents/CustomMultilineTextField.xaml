@@ -10,11 +10,11 @@
                  Text=""
                  Padding="5"
                  MinHeight="60"
-                 AcceptsReturn="True"
-                 TextWrapping="Wrap"
+                 MaxHeight="60"
                  VerticalScrollBarVisibility="Auto"
                  HorizontalScrollBarVisibility="Disabled"
-                 HorizontalAlignment="Stretch"
-                 VerticalAlignment="Stretch"/>
+                 AcceptsReturn="True"
+                 AcceptsTab="True"
+                 TextWrapping="Wrap"/>
     </StackPanel>
 </UserControl>

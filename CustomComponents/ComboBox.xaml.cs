@@ -24,7 +24,34 @@ namespace SmartCodeLab2.CustomComponents
         {
             InitializeComponent();
         }
-        
+
+        public string GetSelectedItem()
+        {
+
+            return languageCB.SelectedValue != null ? 
+                languageCB.SelectedValue.ToString() : 
+                string.Empty;
+        }
+
+        public string SetItems
+        {
+            set
+            {
+                // Clear existing items
+                languageCB.Items.Clear();
+
+                // Split the string by commas and add each item
+                if (!string.IsNullOrEmpty(value))
+                {
+                    var items = value.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var item in items)
+                    {
+                        languageCB.Items.Add(item.Trim()); // Trim to remove spaces
+                    }
+                }
+            }
+        }
+
         public string LabelText
         {
             set { textLabel.Content = value; }

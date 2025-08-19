@@ -5,12 +5,10 @@
         <Label x:Name="textLabel" Content="Name:" 
                FontWeight="Bold" 
                Margin="0,0,0,5"
-               HorizontalAlignment="Left"/>
+               HorizontalAlignment="Left" Background="White"/>
         <TextBox x:Name="textField1"
                  Text=""
                  Padding="5"
-                 Height="25"
-                 Width="200"
                  HorizontalAlignment="Left"/>
     </StackPanel>
 </UserControl>

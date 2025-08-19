@@ -2,6 +2,7 @@
 using System.Windows;
 using SmartCodeLab2.CustomComponents;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace SmartCodeLab2
 {
@@ -13,6 +14,17 @@ namespace SmartCodeLab2
         public Grid3()
         {
             InitializeComponent();
+            fileChooser.button.Click += selectAssociateFiles;
+            language.languageCB.SelectionChanged += (e,d) => {
+                Debug.WriteLine(language.GetSelectedItem());
+            };
+        }
+
+        private void selectAssociateFiles(object sender, EventArgs e)
+        {
+            var openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            openFileDialog.Multiselect = true;
+            DialogResult result = openFileDialog.ShowDialog();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

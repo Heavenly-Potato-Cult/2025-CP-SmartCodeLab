@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using SmartCodeLab2.Models;
+using System.Diagnostics;
 
 namespace SmartCodeLab2.CustomComponents
 {
@@ -26,6 +27,30 @@ namespace SmartCodeLab2.CustomComponents
         {
             get { return textLabel.Content?.ToString() ?? ""; }
             set { textLabel.Content = value; }
+        }
+
+        public int LabelWidth
+        {
+            set {  textLabel.Width = value; }
+        }
+
+        public int LabelHeight
+        {
+            set { textLabel.Height = value; }
+        }
+        public int LabelFontSize
+        {
+            set { textLabel.FontSize = value; }
+        }
+
+        public int TextFieldHeight
+        {
+            set { textField1.Height = value; }
+        }
+
+        public int TextFieldWidth
+        {
+            set { textField1.Width = value; }
         }
     }
 }
