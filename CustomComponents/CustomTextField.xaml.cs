@@ -18,7 +18,7 @@ namespace SmartCodeLab2.CustomComponents
             textLabel.Content = label;
         }
 
-        public string getText()
+        public string GetTextFieldValue()
         {
             return textField1.Text;
         }

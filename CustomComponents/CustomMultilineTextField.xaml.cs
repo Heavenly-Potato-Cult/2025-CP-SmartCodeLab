@@ -24,48 +24,11 @@ namespace SmartCodeLab2.CustomComponents
         public CustomMultilineTextField()
         {
             InitializeComponent();
-            textField1.KeyDown += (sender, e) => {
-                textField1.Height += 30;
-            };
         }
 
-        private void textField1_TextChanged(object sender, TextChangedEventArgs e)
+        public string GetTextFieldValue()
         {
-            var textBox = sender as System.Windows.Controls.TextBox;
-
-            // Force wrap at specific character count (e.g., 50 characters per line)
-            if (textBox.Text.Length > 0)
-            {
-                var lines = textBox.Text.Split('\n');
-                bool modified = false;
-
-                for (int i = 0; i < lines.Length; i++)
-                {
-                    if (lines[i].Length > 50) // Adjust this number as needed
-                    {
-                        // Insert line break every 50 characters
-                        lines[i] = string.Join("\n", SplitIntoChunks(lines[i], 50));
-                        modified = true;
-                    }
-                }
-
-                if (modified)
-                {
-                    int cursorPos = textBox.SelectionStart;
-                    textBox.Text = string.Join("\n", lines);
-                    textBox.SelectionStart = cursorPos;
-                }
-            }
-        }
-
-        private string[] SplitIntoChunks(string text, int chunkSize)
-        {
-            var chunks = new List<string>();
-            for (int i = 0; i < text.Length; i += chunkSize)
-            {
-                chunks.Add(text.Substring(i, Math.Min(chunkSize, text.Length - i)));
-            }
-            return chunks.ToArray();
+            return textField1.Text.ToString();
         }
 
         public string LabelText

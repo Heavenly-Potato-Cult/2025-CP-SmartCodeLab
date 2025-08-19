@@ -39,12 +39,23 @@ namespace SmartCodeLab2
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            con.Children.Add(new testCase(con));
+            testCaseContainer.Children.Add(new testCase(testCaseContainer));
         }
 
         private void CustomButton_Click(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine(actName.getText());
+            Debug.WriteLine(actName.GetTextFieldValue());
+        }
+
+        private void CustomButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            var task = new Models.Task(actName.GetTextFieldValue(), instruction.GetTextFieldValue(), language.GetSelectedItem());
+            foreach (var item in testCaseContainer.Children.OfType<testCase>())
+            {
+                task.Add_Test_Case(item.Test_Case());
+            }
+
+            Debug.WriteLine(task.ToString());
         }
     }
 }

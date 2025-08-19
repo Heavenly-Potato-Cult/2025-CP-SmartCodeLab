@@ -16,8 +16,8 @@
         <ColumnDefinition Width="*"/>
         <ColumnDefinition Width="2*"/>
     </Grid.ColumnDefinitions>
-    <local:CustomTextField HorizontalAlignment="Left" Margin="-1,89,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="171" TextFieldHeight="10" LabelHeight="20" TextFieldWidth="150" Grid.RowSpan="2" LabelFontSize="7" LabelText="Output"/>
-    <local:CustomMultilineTextField HorizontalAlignment="Left" Margin="-1,-8,0,0" VerticalAlignment="Top" Width="171" Grid.ColumnSpan="2"/>
+    <local:CustomTextField x:Name="output" HorizontalAlignment="Left" Margin="-1,89,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="171" TextFieldHeight="10" LabelHeight="20" TextFieldWidth="150" Grid.RowSpan="2" LabelFontSize="7" LabelText="Output"/>
+    <local:CustomMultilineTextField x:Name="inputs" HorizontalAlignment="Left" Margin="-1,-8,0,0" VerticalAlignment="Top" Width="171" Grid.ColumnSpan="2"/>
     <Label x:Name="closeBtn" Grid.Column="1" Content="X" Margin="84,2,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
     <!-- Add content -->

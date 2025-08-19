@@ -20,6 +20,11 @@ namespace SmartCodeLab2.CustomComponents
             closeBtn.MouseDown += CloseBtn_MouseDown;
         }
 
+        public KeyValuePair<string,string> Test_Case()
+        {
+            return new KeyValuePair<string, string>(inputs.GetTextFieldValue(), output.GetTextFieldValue());
+        }
+
         private void CloseBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Dispose();
