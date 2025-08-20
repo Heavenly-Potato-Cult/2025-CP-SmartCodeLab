@@ -9,7 +9,8 @@
     <UserControl.Resources>
         <!-- Style for section borders -->
         <Style TargetType="Border" x:Key="SectionBorder">
-            <Setter Property="Background" Value="#334455"/>
+            <!--  <Setter Property="Background" Value="#334455"/> -->
+            <Setter Property="Background" Value="#FF1E2021"/>
             <Setter Property="Padding" Value="15"/>
             <Setter Property="CornerRadius" Value="5"/>
             <Setter Property="BorderThickness" Value="1"/>

@@ -5,28 +5,26 @@
     <Button x:Name="PART_Button" 
             Background="Transparent" 
             BorderThickness="0" 
-            Padding="10,0,0,0"
+            Padding="0"
             HorizontalContentAlignment="Stretch"
-            VerticalContentAlignment="Stretch"
-            VerticalAlignment="Top" Height="48" Width="165">
+            VerticalContentAlignment="Stretch" Height="30" Width="127">
 
         <Grid VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <!-- Icon -->
             <Image Source="{Binding Icon, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                   Width="24" Height="24"
+                   Width="16" Height="16"
                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
             <!-- Text -->
             <TextBlock Grid.Column="1" 
                        Text="{Binding Label, RelativeSource={RelativeSource AncestorType=UserControl}}" 
-                       Foreground="White" FontSize="14"
-                       VerticalAlignment="Center" 
-                       Margin="5,0,0,0"/>
+                       Foreground="White" FontSize="12"
+                       VerticalAlignment="Center" Height="16" />
         </Grid>
     </Button>
 </UserControl>

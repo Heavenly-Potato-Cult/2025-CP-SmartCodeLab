@@ -36,7 +36,7 @@
             </StackPanel>
 
             <!-- Main Content Area -->
-            <Grid>
+            <Grid Background="#f0eeef" >
                
                 <ContentControl x:Name="cc" Content="" VerticalAlignment="Center" Height="760" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="1220" MinWidth="1220"/>
             </Grid>
