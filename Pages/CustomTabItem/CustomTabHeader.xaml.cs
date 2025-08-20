@@ -22,9 +22,10 @@ namespace SmartCodeLab2.Pages.CustomTabItem
     public partial class CustomTabHeader : System.Windows.Controls.UserControl
     {
         public event EventHandler CloseRequested;
-        public CustomTabHeader()
+        public CustomTabHeader(string headerDisplay)
         {
             InitializeComponent();
+            headerText.Content = headerDisplay;
         }
 
         private void closeBtn_Click(object sender, RoutedEventArgs e)

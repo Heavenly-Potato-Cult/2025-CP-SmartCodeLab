@@ -88,17 +88,8 @@ namespace SmartCodeLab2
             //check if the selected item on the FileTree is a file, if it is a fodler.. tapos ang usapan
             if (File.Exists(((FileItem)fileTree.SelectedItem).FullPath))
             {
-                var customHeader = new CustomTabHeader();
-                var newTab = new HandyControl.Controls.TabItem()
-                {
-                    Header = customHeader,
-                    Content = new TaskTabItem()
-                };
-                customHeader.CloseRequested += (sender, e) =>
-                {
-                    tabControl.Items.Remove(newTab);
-                };
-                tabControl.Items.Add(newTab);
+                var selectedItem = (FileItem)fileTree.SelectedItem;
+                tabControl.Items.Add(new CustomTabItem(selectedItem.Name, new TaskTabItem(), tabControl));
             }
         }
     }
