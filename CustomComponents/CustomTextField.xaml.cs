@@ -1,4 +1,5 @@
 ﻿using SmartCodeLab2.Models;
+using System.ComponentModel;
 using System.Diagnostics;
 
 namespace SmartCodeLab2.CustomComponents
@@ -13,16 +14,12 @@ namespace SmartCodeLab2.CustomComponents
             InitializeComponent();
         }
 
-        public void setLabel(string label)
-        {
-            textLabel.Content = label;
-        }
-
         public string GetTextFieldValue()
         {
             return textField1.Text;
         }
 
+        [Category("Appearance")]
         public string LabelText
         {
             get { return textLabel.Content?.ToString() ?? ""; }

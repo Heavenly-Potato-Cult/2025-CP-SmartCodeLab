@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,6 +53,7 @@ namespace SmartCodeLab2.CustomComponents
             }
         }
 
+        [Category("Appearance")]
         public string LabelText
         {
             set { textLabel.Content = value; }

@@ -25,7 +25,7 @@ namespace SmartCodeLab2.Models
             {
                 testCases.Add(pair.Key, pair.Value);
             }
-            catch(System.ArgumentException ae)
+            catch(System.ArgumentException)
             {
                 //do nothing.... for now, later will notify user that the same iputs/keys are used
             }

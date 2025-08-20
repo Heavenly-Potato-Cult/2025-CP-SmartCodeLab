@@ -1,8 +1,11 @@
 ﻿using Microsoft.Win32;
-using System.Windows;
 using SmartCodeLab2.CustomComponents;
+using SmartCodeLab2.Models.TreeItemObject;
+using SmartCodeLab2.Pages;
+using SmartCodeLab2.Pages.CustomTabItem;
 using System.Diagnostics;
-using System.Windows.Forms;
+using System.IO;
+using System.Windows;
 
 namespace SmartCodeLab2
 {
@@ -14,10 +17,9 @@ namespace SmartCodeLab2
         public Grid3()
         {
             InitializeComponent();
-            fileChooser.button.Click += selectAssociateFiles;
-            language.languageCB.SelectionChanged += (e,d) => {
-                Debug.WriteLine(language.GetSelectedItem());
-            };
+
+            //for choosing a file as a reference to the student's code
+            //fileChooser.button.Click += selectAssociateFiles;
         }
 
         private void selectAssociateFiles(object sender, EventArgs e)
@@ -39,23 +41,65 @@ namespace SmartCodeLab2
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            testCaseContainer.Children.Add(new testCase(testCaseContainer));
+            //testCaseContainer.Children.Add(new testCase(testCaseContainer));
         }
 
         private void CustomButton_Click(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine(actName.GetTextFieldValue());
+            //Debug.WriteLine(actName.GetTextFieldValue());
         }
 
         private void CustomButton_Click_1(object sender, RoutedEventArgs e)
         {
-            var task = new Models.Task(actName.GetTextFieldValue(), instruction.GetTextFieldValue(), language.GetSelectedItem());
-            foreach (var item in testCaseContainer.Children.OfType<testCase>())
-            {
-                task.Add_Test_Case(item.Test_Case());
-            }
+            //var task = new Models.Task(actName.GetTextFieldValue(), instruction.GetTextFieldValue(), language.GetSelectedItem());
+            //foreach (var item in testCaseContainer.Children.OfType<testCase>())
+            //{
+            //    task.Add_Test_Case(item.Test_Case());
+            //}
 
-            Debug.WriteLine(task.ToString());
+            //Debug.WriteLine(task.ToString());
+        }
+
+        private void FileMenu_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.MessageBox.Show("Create New File");
+        }
+
+        private void OpenFolder_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new FolderBrowserDialog();
+
+            DialogResult result = dialog.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                fileTree.Items.Clear();
+
+                var rootItem = new FileItem(dialog.SelectedPath)
+                {
+                    Name = new DirectoryInfo(dialog.SelectedPath).Name
+                };
+                Debug.WriteLine(rootItem);
+                fileTree.Items.Add(rootItem);
+            }
+        }
+
+        private void Open_File_Selected(object sender, RoutedEventArgs e)
+        {
+            //check if the selected item on the FileTree is a file, if it is a fodler.. tapos ang usapan
+            if (File.Exists(((FileItem)fileTree.SelectedItem).FullPath))
+            {
+                var customHeader = new CustomTabHeader();
+                var newTab = new HandyControl.Controls.TabItem()
+                {
+                    Header = customHeader,
+                    Content = new TaskTabItem()
+                };
+                customHeader.CloseRequested += (sender, e) =>
+                {
+                    tabControl.Items.Remove(newTab);
+                };
+                tabControl.Items.Add(newTab);
+            }
         }
     }
 }

@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="SmartCodeLab2.Pages.CustomTabItem.CustomTabHeader"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SmartCodeLab2.Pages.CustomTabItem"
+             mc:Ignorable="d" Height="39" Width="179">
+    <WrapPanel Margin="0,0,0,10">
+        <Label Content="Label" HorizontalAlignment="Left" Width="148"/>
+        <Button x:Name="closeBtn" Content="X" HorizontalAlignment="Left" VerticalAlignment="Top" Click="closeBtn_Click"/>
+    </WrapPanel>
+</UserControl>
