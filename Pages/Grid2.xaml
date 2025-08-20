@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SmartCodeLab2"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+              Width="1220" Height="760">
     <UserControl.Resources>
         <!-- Shared Styles -->
         <Style TargetType="Border" x:Key="PanelBorder">
@@ -28,7 +28,7 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Background="#FF0C2D6D">
+    <Grid Margin="50">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500"/>
             <ColumnDefinition Width="50"/>
@@ -37,7 +37,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- File Manager Panel -->
-        <Border Grid.Column="0" Style="{StaticResource PanelBorder}">
+        <Border Grid.Column="0" Style="{StaticResource PanelBorder}" Margin="0,0,0,226">
             <StackPanel>
                 <TextBlock Text="Reference Files" Style="{StaticResource HeaderText}"/>
 
@@ -56,7 +56,7 @@
         </Border>
 
         <!-- Code Preview Panel -->
-        <Border Grid.Column="2" Background="#1E1E1E" Padding="10" CornerRadius="5" Margin="0,0,306,0">
+        <Border Grid.Column="2" Background="#1E1E1E" Padding="10" CornerRadius="5" Margin="0,0,14,226">
             <StackPanel>
                 <TextBlock Text="Preview" 
                            Style="{StaticResource HeaderText}"
