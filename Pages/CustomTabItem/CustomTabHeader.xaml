@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:SmartCodeLab2.Pages.CustomTabItem"
              mc:Ignorable="d" Height="39" Width="179">
     <WrapPanel Margin="0,0,0,10">
-        <Label Content="Label" HorizontalAlignment="Left" Width="148"/>
+        <Label Content="Label" Name="headerText" HorizontalAlignment="Left" Width="148"/>
         <Button x:Name="closeBtn" Content="X" HorizontalAlignment="Left" VerticalAlignment="Top" Click="closeBtn_Click"/>
     </WrapPanel>
 </UserControl>
