@@ -26,26 +26,50 @@ namespace SmartCodeLab2
             if (e.LeftButton == MouseButtonState.Pressed)
                 this.DragMove();
         }
-        private void StudentsButton_Click(object sender, RoutedEventArgs e)
+
+
+
+        private void SideMenuStudents_Click(object sender, RoutedEventArgs e)
         {
             ShowGrid(new Grid1("Grid 1"));
-        }
 
-        private void FilesButton_Click(object sender, RoutedEventArgs e)
+        }
+        private void SideMenuFiles_Click(object sender, RoutedEventArgs e)
         {
             ShowGrid(new Grid2());
 
         }
-        private void InstructionsButton_Click(object sender, RoutedEventArgs e)
+
+        private void SideMenuInstructions_Click(object sender, RoutedEventArgs e)
         {
             ShowGrid(new Grid3());
+
         }
 
-        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        private void SideMenuExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
@@ -61,8 +85,6 @@ namespace SmartCodeLab2
            
         }
 
-
-
-
+        
     }
 }
