@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 
 
@@ -31,42 +32,43 @@ namespace SmartCodeLab2
 
         private void SideMenuStudents_Click(object sender, RoutedEventArgs e)
         {
+            SetActiveMenu(SideMenuStudents);
             ShowGrid(new Grid1("Grid 1"));
 
         }
         private void SideMenuFiles_Click(object sender, RoutedEventArgs e)
         {
+            SetActiveMenu(SideMenuFiles);
             ShowGrid(new Grid2());
 
         }
 
         private void SideMenuInstructions_Click(object sender, RoutedEventArgs e)
         {
+            SetActiveMenu(SideMenuInstructions);
             ShowGrid(new Grid3());
 
         }
 
         private void SideMenuExit_Click(object sender, RoutedEventArgs e)
         {
+            SetActiveMenu(SideMenuExit);
             this.Close();
 
         }
 
 
+        private void SetActiveMenu(CustomComponents.CustomSideMenuButton selectedButton)
+        {
+            // Reset all buttons
+            SideMenuStudents.PART_Button.Background = System.Windows.Media.Brushes.Transparent;
+            SideMenuFiles.PART_Button.Background = System.Windows.Media.Brushes.Transparent;
+            SideMenuInstructions.PART_Button.Background = System.Windows.Media.Brushes.Transparent;
+            SideMenuExit.PART_Button.Background = System.Windows.Media.Brushes.Transparent;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+            // Highlight the selected one
+            selectedButton.PART_Button.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(60, 60, 60)); 
+        }
 
 
 

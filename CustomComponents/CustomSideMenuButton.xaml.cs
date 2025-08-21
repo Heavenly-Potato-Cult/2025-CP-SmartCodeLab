@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace SmartCodeLab2.CustomComponents
 {
@@ -8,16 +9,24 @@ namespace SmartCodeLab2.CustomComponents
     /// </summary>
     public partial class CustomSideMenuButton : System.Windows.Controls.UserControl
     {
+        public System.Windows.Controls.Button InnerButton => PART_Button;
         public CustomSideMenuButton()
         {
             InitializeComponent();
 
-            // Forward the internal button's Click to our routed event
+            
             PART_Button.Click += (s, e) =>
             {
                 RaiseEvent(new RoutedEventArgs(ClickEvent));
             };
         }
+
+        public bool IsSelected
+        {
+            get { return (bool)GetValue(IsSelectedProperty); }
+            set { SetValue(IsSelectedProperty, value); }
+        }
+
 
         public static readonly DependencyProperty IconProperty =
         DependencyProperty.Register(
@@ -30,7 +39,12 @@ namespace SmartCodeLab2.CustomComponents
             "Label",
             typeof(string),
             typeof(CustomSideMenuButton));
-            
+
+
+        public static readonly DependencyProperty IsSelectedProperty =
+            DependencyProperty.Register(nameof(IsSelected), typeof(bool), typeof(CustomSideMenuButton),
+                new PropertyMetadata(false));
+
         public string Icon
         {
             get => (string)GetValue(IconProperty);
@@ -45,7 +59,7 @@ namespace SmartCodeLab2.CustomComponents
 
 
 
-        // Expose the Button's Click event
+        
         public event RoutedEventHandler Click
         {
             add { PART_Button.Click += value; }
