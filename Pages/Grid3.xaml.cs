@@ -38,28 +38,6 @@ namespace SmartCodeLab2
                 Console.WriteLine(folderBrowserDialog.SelectedPath);
             }
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            //testCaseContainer.Children.Add(new testCase(testCaseContainer));
-        }
-
-        private void CustomButton_Click(object sender, RoutedEventArgs e)
-        {
-            //Debug.WriteLine(actName.GetTextFieldValue());
-        }
-
-        private void CustomButton_Click_1(object sender, RoutedEventArgs e)
-        {
-            //var task = new Models.Task(actName.GetTextFieldValue(), instruction.GetTextFieldValue(), language.GetSelectedItem());
-            //foreach (var item in testCaseContainer.Children.OfType<testCase>())
-            //{
-            //    task.Add_Test_Case(item.Test_Case());
-            //}
-
-            //Debug.WriteLine(task.ToString());
-        }
-
         private void FileMenu_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.MessageBox.Show("Create New File");
@@ -89,7 +67,7 @@ namespace SmartCodeLab2
             if (File.Exists(((FileItem)fileTree.SelectedItem).FullPath))
             {
                 var selectedItem = (FileItem)fileTree.SelectedItem;
-                tabControl.Items.Add(new CustomTabItem(selectedItem.Name, new TaskTabItem(), tabControl));
+                tabControl.Items.Add(new CustomTabItem(new TaskTabItem(selectedItem.Name), tabControl));
             }
         }
     }

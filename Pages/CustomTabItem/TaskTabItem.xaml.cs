@@ -1,6 +1,7 @@
 ﻿using SmartCodeLab2.CustomComponents;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,18 +20,13 @@ namespace SmartCodeLab2.Pages.CustomTabItem
     /// <summary>
     /// Interaction logic for TaskTabItem.xaml
     /// </summary>
-    public partial class TaskTabItem : System.Windows.Controls.UserControl
+    public partial class TaskTabItem : CustomTabContent
     {
-        public TaskTabItem()
+        public TaskTabItem(string headerText) : base(headerText)
         {
             InitializeComponent();
+            setFields([taskName.textField1, instruction.textField1]);
         }
-
-        private void BrowseFolderButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void CustomButton_Click(object sender, RoutedEventArgs e)
         {
             testCaseContainer.Children.Add(new testCase(testCaseContainer));

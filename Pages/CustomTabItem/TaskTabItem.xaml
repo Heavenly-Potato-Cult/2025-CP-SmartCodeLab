@@ -1,10 +1,10 @@
-﻿<UserControl
+﻿<local:CustomTabContent x:Class="SmartCodeLab2.Pages.CustomTabItem.TaskTabItem"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SmartCodeLab2.Pages.CustomTabItem"
-             xmlns:CustomComponents="clr-namespace:SmartCodeLab2.CustomComponents" xmlns:hc="https://handyorg.github.io/handycontrol" x:Class="SmartCodeLab2.Pages.CustomTabItem.TaskTabItem"
+             xmlns:CustomComponents="clr-namespace:SmartCodeLab2.CustomComponents" xmlns:hc="https://handyorg.github.io/handycontrol"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -16,15 +16,15 @@
         <!-- Toolbar with Browse button -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10"/>
         <Grid Background="#FF868383" Grid.RowSpan="2">
-            <CustomComponents:CustomTextField HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="263" LabelText="Activity Name" TextFieldWidth="300"/>
+            <CustomComponents:CustomTextField x:Name="taskName" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="263" LabelText="Activity Name" TextFieldWidth="300"/>
             <CustomComponents:ComboBox HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="232" SetItems="C++,Java,Python" LabelText="Language"/>
-            <CustomComponents:CustomMultilineTextField HorizontalAlignment="Left" Margin="0,96,0,0" VerticalAlignment="Top" Width="457" Height="116" LabelText="Instruction"/>
+            <CustomComponents:CustomMultilineTextField x:Name="instruction" HorizontalAlignment="Left" Margin="0,96,0,0" VerticalAlignment="Top" Width="457" Height="116" LabelText="Instruction"/>
             <hc:ScrollViewer Margin="10,244,10,0">
                 <WrapPanel x:Name="testCaseContainer" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Width="Auto" Background="Black"/>
             </hc:ScrollViewer>
             <CustomComponents:CustomButton HorizontalAlignment="Left" Margin="12,204,0,0" VerticalAlignment="Top" Text="Add Test Case" Click="CustomButton_Click"/>
-            <CustomComponents:CustomFileChooser HorizontalAlignment="Left" Margin="468,22,0,0" VerticalAlignment="Top" Height="57"/>
+            <CustomComponents:CustomFileChooser x:Name="fileChooser" HorizontalAlignment="Left" Margin="468,22,0,0" VerticalAlignment="Top" Height="57"/>
         </Grid>
 
     </Grid>
-</UserControl>
+</local:CustomTabContent>
