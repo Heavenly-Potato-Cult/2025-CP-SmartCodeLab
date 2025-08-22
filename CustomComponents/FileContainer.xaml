@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="SmartCodeLab2.CustomComponents.FileContainer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SmartCodeLab2.CustomComponents"
+             mc:Ignorable="d" Height="20" Width="200"
+             HorizontalAlignment="Left" Margin="0,0,0,10">
+    <Grid Background="AliceBlue">
+        <Label x:Name="fileName" Content="File Name" HorizontalAlignment="Left"  FontSize="8" Width="170" RenderTransformOrigin="0.5,0.5" Height="20">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <local:CustomButton HorizontalAlignment="Left" Margin="175,0,0,0" VerticalAlignment="Center" Width="25" Height="20" Text="X" Background="White" Foreground="Red"/>
+
+    </Grid>
+</UserControl>

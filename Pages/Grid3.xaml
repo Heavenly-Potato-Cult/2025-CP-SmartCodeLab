@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:SmartCodeLab2"
              xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:CustomComponents="clr-namespace:SmartCodeLab2.CustomComponents" x:Class="SmartCodeLab2.Grid3"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" Width="1220">
     <UserControl.Resources>
         <!-- Shared Styles -->
         <Style TargetType="{x:Type Border}" x:Key="MainPanelBorder">
@@ -40,15 +40,19 @@
     </UserControl.Resources>
 
     <Grid Background="#FF26DA41">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="28*"/>
+        </Grid.RowDefinitions>
         <hc:ButtonGroup/>
-        <TreeView Width="150" Name="fileTree" HorizontalAlignment="Left" Margin="0,32,0,151" SelectedItemChanged="Open_File_Selected">
+        <TreeView Width="150" Name="fileTree" HorizontalAlignment="Left" Margin="0,32,0,151" SelectedItemChanged="Open_File_Selected" Grid.RowSpan="2">
             <TreeView.Resources>
                 <HierarchicalDataTemplate DataType="{x:Type tree:FileItem}" ItemsSource="{Binding Children}">
                     <TextBlock Text="{Binding Name}" />
                 </HierarchicalDataTemplate>
             </TreeView.Resources>
         </TreeView>
-        <Menu Height="30" VerticalAlignment="Top" Margin="0,0,0,0">
+        <Menu Height="30" VerticalAlignment="Top">
             <MenuItem Header="File">
                 <MenuItem Header="New File" Click="FileMenu_Click">
                 </MenuItem>
@@ -56,7 +60,6 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <hc:TabControl Margin="155,32,0,0" Name="tabControl">
-        </hc:TabControl>
+        <hc:TabControl Margin="150,32,10,0" Name="tabControl" BorderThickness="5,5,1,1" Grid.RowSpan="2"/>
     </Grid>
 </UserControl>

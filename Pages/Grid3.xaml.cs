@@ -17,7 +17,6 @@ namespace SmartCodeLab2
         public Grid3()
         {
             InitializeComponent();
-
             //for choosing a file as a reference to the student's code
             //fileChooser.button.Click += selectAssociateFiles;
         }
